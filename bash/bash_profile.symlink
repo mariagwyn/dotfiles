@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# shortcut to this dotfiles path is $DOTS
+export DOTS=$HOME/.dotfiles
+
+# Stash your environment variables in ~/.localrc. This means they'll stay out
+# of your main dotfiles repository (which may be public, like this one), but
+# you'll have access to them in your scripts.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# Load path files
+for file in $(find -H "$DOTS" -maxdepth 2 -name '*path.sh')
+do
+  source $file
+done
+echo -e "\nPaths loaded.\n"
+
+# Source the bash folder first b/c it helps.  A lot.
+for file in $(find "$DOTS/bash" -type f ! -name *completion* ! -name *path* ! -name *install* -name '*.sh')
+do
+  source $file
+done
+echo -e "Sourced bash files first!\n"
+
+# Load everything but the path, completion, and install files.
+for file in $(find "$DOTS" -type f ! -name *completion* ! -name *path* ! -name *install* -name '*.sh')
+do
+  source $file
+done
+echo -e "Remaining config files sourced.\n"
+
+# Load completion files
+for file in $(find -H "$DOTS" -name 'completion.sh')
+do
+  source $file
+done
+echo -e "Completed.\n"

@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Web Development Tools
+#
+# Installs mysql, php 5.6-xdebug, via homebrew
+
+if test ! $(which mysql)
+then
+  echo "  Installing Mysql for you."
+  brew install mysql
+else echo "  Mysql already installed."
+fi

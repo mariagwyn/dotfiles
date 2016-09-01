@@ -1,0 +1,49 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "c2917eac-7343-49c0-a4ac-d2fb101b45d5"
+  "color-picker":
+    preferredFormat: "HEX"
+  core:
+    audioBeep: false
+    disabledPackages: [
+      "background-tips"
+      "exception-reporting"
+      "metrics"
+    ]
+    excludeVcsIgnoredPaths: false
+    hideGitIgnoredFiles: false
+    ignoredNames: [
+      ".bundle"
+      ".git"
+      "log"
+      "repositories"
+      "tmp"
+      "vendor"
+    ]
+    openEmptyEditorOnStart: false
+    themes: [
+      "unity-ui"
+      "glacier-syntax"
+    ]
+  editor:
+    fontFamily: "Menlo"
+    invisibles: {}
+    showIndentGuide: true
+    softWrap: true
+  pigments:
+    markerType: "dot"
+    sortPaletteColors: "by color"
+  "release-notes":
+    viewedVersion: "0.89.0"
+  "spell-check":
+    grammars: [
+      "text.plain"
+      "source.gfm"
+      "text.git-commit"
+      "text.html.php"
+      "source.asciidoc"
+      "text.plain.null-grammar"
+    ]
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
