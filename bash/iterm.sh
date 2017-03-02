@@ -7,7 +7,7 @@ function iterm2_print_user_vars() {
 }
 # Shell Integration
 source ~/.iterm2_shell_integration.`basename $SHELL`
-
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 # Set badge to show the current session name and git branch, if any is set.
 printf "\e]1337;SetBadgeFormat=%s\a" \
   $(echo -n "\(session.name) \(user.gitBranch)" | base64)

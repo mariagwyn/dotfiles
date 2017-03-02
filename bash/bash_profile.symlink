@@ -25,8 +25,8 @@ do
 done
 echo -e "Sourced bash files first!\n"
 
-# Load everything but the path, completion, and install files.
-for file in $(find "$DOTS" -type f ! -name *completion* ! -name *path* ! -name *install* -name '*.sh')
+# Load everything but the path, completion, os-defaults and install files.
+for file in $(find "$DOTS" -type f ! -name *completion* ! -name *path* ! -name *install* -name '*.sh' ! -name set-defaults.sh)
 do
   source $file
 done

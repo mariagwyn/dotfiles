@@ -10,3 +10,5 @@ fi
 if [ -f $HOME/.ahra_profile ]; then
   source $HOME/.ahra_profile
 fi
+
+alias assh='ssh -F $HOME/.ssh/ah_config'

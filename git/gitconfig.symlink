@@ -1,83 +1,94 @@
 # Local/private config goes in the include
 [include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
-
-[alias]
-        co = checkout
-        count   = !git shortlog -sn
-
-        ci = commit -v
-        cia = commit -v -a
-        cob = checkout -b
-        fa = fetch --all
-
-        i = rebase -i
-        rh = reset --hard
-        rv = remote -v
-        sh = !git-sh
-        st = status
-        w = whatchanged
-
-        shist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
-        st = status
-
-        type = cat-file -t
-        dump = cat-file -p
-
-        hist = log --graph --pretty=format:'%C(yellow)%h%Creset | %d | %Cgreen%ad%Creset | by %C(bold blue)%an%Creset | %s%d' --date=short
-        loli = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) by %C(bold blue)%an%Creset' --abbrev-commit --date=short
-        last = show-ref --hash | head -1
-
-        diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
-        log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
-        show = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
-
-        lp = log -p
-        lo = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%an %cr)%Creset'
-        ls = ls-files
-
-        publish = !git push origin "$(git branch-name)"
-        ignored = ls-files -o -i --exclude-standard
-        unstage = reset HEAD
-        cp = cherry-pick
-        d = diff
-        ds = diff --stat
-        dw = diff --color-words
-        p = diff --cached
-        ps = diff --cached --stat
-
-        alias = config --get-regexp alias
-        root = !pwd
-
-        b = branch
-        br = branch
-        ba = branch -a
-        bd = branch -d
-        bD = branch -D
-        # git sync assumes you have two remotes: one named upstream (the "central" repo), and one named origin (your "fork")
-        sync = "!f() { git checkout master && git fetch --all && git rebase upstream/master && git push -f origin master; }; f"
-
+  path = ~/.gitconfig.local
+[github]
+  user = mariagwyn
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-        excludesfile = ~/.gitignore
-	editor = atom --wait
+  excludesfile = ~/.gitignore
+editor = atom --wait
 [apply]
-        whitespace = nowarn
+  whitespace = nowarn
 [mergetool]
-        keepBackup = false
+  keepBackup = false
 [difftool]
-        prompt = false
+  prompt = false
 [help]
-        autocorrect = 1
+  autocorrect = 1
 [push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to suppress warning message
+  default = simple
+[alias]
+  co = checkout
+  count   = !git shortlog -sn
+
+  ci = commit -v
+  cia = commit -v -a
+  cob = checkout -b
+  fa = fetch --all
+
+  i = rebase -i
+  rh = reset --hard
+  rv = remote -v
+  sh = !git-sh
+  st = status
+  w = whatchanged
+
+  shist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+  st = status
+
+  type = cat-file -t
+  dump = cat-file -p
+
+  hist = log --graph --pretty=format:'%C(yellow)%h%Creset | %d | %Cgreen%ad%Creset | by %C(bold blue)%an%Creset | %s%d' --date=short
+  loli = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) by %C(bold blue)%an%Creset' --abbrev-commit --date=short
+  last = show-ref --hash | head -1
+
+  diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
+  log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
+  show = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | /usr/bin/less -+$LESS -FRX
+
+  lp = log -p
+  lo = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(yellow)%d%Creset %s %C(green)(%an %cr)%Creset'
+  ls = ls-files
+
+  publish = !git push origin "$(git branch-name)"
+  ignored = ls-files -o -i --exclude-standard
+  unstage = reset HEAD
+  cp = cherry-pick
+  d = diff
+  ds = diff --stat
+  dw = diff --color-words
+  p = diff --cached
+  ps = diff --cached --stat
+
+  alias = config --get-regexp alias
+  root = !pwd
+
+  b = branch
+  br = branch
+  ba = branch -a
+  bd = branch -d
+  bD = branch -D
+  # git sync assumes you have two remotes: one named upstream (the "central" repo), and one named origin (your "fork")
+  sync = "!f() { git checkout master && git fetch --all && git rebase upstream/master && git push -f origin master; }; f"
+	lastchange = log -p --follow -n 1
+
+  # Return commit messages for the current tag
+  merges = "!f() { git log --oneline --merges --simplify-merges --pretty=format:\"%B\" $(git ahtag)..master | egrep -v '(^Merge|^$)' | sed -e 's/^/  * /'; }; f"
+
+  # Return a list of contributors
+  contribs = "!f() { git log --oneline --no-merges --pretty=format:\"%an\" $(git ahtag)..master | sort -u |  awk '{print}' ORS='++ ' | sed -e 's/^/Contributions by: /'; }; f"
+
+  # Construct nicely formatted  release notes
+  prnotes2 = "!f() { echo 'This release:' ; git merges ; echo; git contribs ; echo; git ahtag; }; f"
+
+  [hub]
+    protocol = https

@@ -1,5 +1,5 @@
 [user]
-        name = mariagwyn
-        email = mariagwyn@gmail.com
+  name = username
+  email = email
 [credential]
-        helper = osxkeychain
+  helper = osxkeychain
