@@ -1,6 +1,23 @@
+
+
 #!/usr/bin/env bash
 
 if [[ -a ~/.bash_profile ]]
 then
   source ~/.bash_profile
 fi
+# Include Drush bash customizations.
+if [ -f "/Users/maria.mcdowell/.drush/drush.bashrc" ] ; then
+  source /Users/maria.mcdowell/.drush/drush.bashrc
+fi
+
+# Include Drush completion.
+if [ -f "/Users/maria.mcdowell/.drush/drush.complete.sh" ] ; then
+  source /Users/maria.mcdowell/.drush/drush.complete.sh
+fi
+
+# Include Drush prompt customizations.
+if [ -f "/Users/maria.mcdowell/.drush/drush.prompt.sh" ] ; then
+  source /Users/maria.mcdowell/.drush/drush.prompt.sh
+fi
+
