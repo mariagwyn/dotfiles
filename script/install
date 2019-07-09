@@ -5,6 +5,8 @@
 set -e
 
 cd "$(dirname $0)"/..
+# Install homebrew since brew bundle requires it
+./homebrew/brew_install.sh
 
 # @todo wrap in brew bundle check and only install if necessary
 # Run Homebrew through the Brewfile

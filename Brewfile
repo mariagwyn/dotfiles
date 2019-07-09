@@ -3,10 +3,8 @@ cask_args appdir: '/Applications'
 tap "caskroom/cask"
 tap "homebrew/bundle"
 tap "homebrew/core"
-tap "homebrew/dupes"
 tap "homebrew/php"
 tap "homebrew/services"
-tap "homebrew/versions"
 
 brew "libyaml"
 brew "gdbm"
@@ -14,11 +12,14 @@ brew "python"
 brew "ansible"
 brew "autoconf"
 brew "bash-completion"
+brew "brew-php-switcher"
 brew "chromedriver"
+brew "composer"
 brew "coreutils"
 brew "dnsmasq"
 brew "gettext"
 brew "git"
+brew "git-flow"
 brew "gpatch"
 brew "grc"
 brew "hub"
@@ -29,20 +30,23 @@ brew "mysql", restart_service: true
 brew "node"
 brew "rbenv"
 brew "ruby"
+brew "rbenv"
+brew "ruby-build"
 brew "spark"
 brew "tree"
 brew "unixodbc"
+brew "php@7.1"
 brew "wget"
-brew "homebrew/php/brew-php-switcher"
-brew "homebrew/php/php70", link: false
-brew "homebrew/php/composer"
-brew "homebrew/php/php56-xdebug"
+brew "yarn"
 
 cask 'transmit'
 cask 'steam'
 cask 'scrivener'
 cask '1password'
 cask 'dropbox'
+cask 'sequel-pro'
+cask 'virtualbox'
+cask 'vagrant'
 cask "vagrant-manager"
 
 # brew 'ack'

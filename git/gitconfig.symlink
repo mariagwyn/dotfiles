@@ -1,4 +1,7 @@
 # Local/private config goes in the include
+[user]
+	name = Maria McDowell
+  email = mariagwyn@gmail.com
 [include]
   path = ~/.gitconfig.local
 [github]
