@@ -17,6 +17,7 @@ export PATH="/Applications/DevDesktop/mysql/bin:$PATH"
 # export PATH="/Applications/DevDesktop/php5_6/bin:$PATH"
 export DEVDESKTOP_DRUPAL_SETTINGS_DIR="$HOME/.acquia/DevDesktop/DrupalSettings"
 export PATH="$PATH:/Applications/DevDesktop/tools"
-
+export PATH="$PATH:/Application/DevDesktop/tools"
+export PATH="$PATH:/Application/DevDesktop/drush_9"
 # Drupal Console
 source "$HOME/.console/console.rc" 2>/dev/null

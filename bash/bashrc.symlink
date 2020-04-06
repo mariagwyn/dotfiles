@@ -20,6 +20,3 @@ fi
 if [ -f "/Users/maria.mcdowell/.drush/drush.prompt.sh" ] ; then
   source /Users/maria.mcdowell/.drush/drush.prompt.sh
 fi
-
-
-export PATH="$PATH:/Application/DevDesktop/tools"
